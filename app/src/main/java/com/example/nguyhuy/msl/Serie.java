@@ -1,17 +1,23 @@
 package com.example.nguyhuy.msl;
 
+import org.json.JSONArray;
+
+import java.util.ArrayList;
+
 public class Serie {
     private String image;
     private String title;
 
-    private float user_score;
-    private float tmdb_score;
+    private int user_score;
+    private double tmdb_score;
 
     private int actual_episode;
     private int max_episode;
 
     private int actual_season;
     private int max_season;
+
+    private ArrayList<Season> seasons;
 
     public Serie () {
         this.actual_episode = 0;
@@ -34,19 +40,19 @@ public class Serie {
         this.title = title;
     }
 
-    public float getUser_score() {
+    public int getUser_score() {
         return user_score;
     }
 
-    public void setUser_score(float user_score) {
+    public void setUser_score(int user_score) {
         this.user_score = user_score;
     }
 
-    public float getTmdb_score() {
+    public double getTmdb_score() {
         return tmdb_score;
     }
 
-    public void setTmdb_score(float tmdb_score) {
+    public void setTmdb_score(double tmdb_score) {
         this.tmdb_score = tmdb_score;
     }
 
@@ -80,5 +86,13 @@ public class Serie {
 
     public void setMax_season(int max_season) {
         this.max_season = max_season;
+    }
+
+    public ArrayList<Season> getSeasons() {
+        return seasons;
+    }
+
+    public void setSeasons(ArrayList<Season> seasons) {
+        this.seasons = seasons;
     }
 }

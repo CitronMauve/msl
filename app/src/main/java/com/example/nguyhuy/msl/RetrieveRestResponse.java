@@ -1,6 +1,13 @@
 package com.example.nguyhuy.msl;
 
 import android.os.AsyncTask;
+import android.util.Log;
+
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
+
+import java.util.ArrayList;
 
 import okhttp3.MediaType;
 import okhttp3.OkHttpClient;
@@ -16,7 +23,6 @@ public class RetrieveRestResponse extends AsyncTask<String, Void, String> {
         try {
             OkHttpClient client = new OkHttpClient();
             MediaType mediaType = MediaType.parse("application/octet-stream");
-            RequestBody body = RequestBody.create(mediaType, "{}");
             Request request = new Request.Builder()
                     .url(urls[0])
                     .get()
@@ -30,6 +36,35 @@ public class RetrieveRestResponse extends AsyncTask<String, Void, String> {
     }
 
     protected void onPostExecute(String result) {
-        System.out.println(result);
+        try {
+            JSONObject jObject = new JSONObject(result);
+            final String path = "http://image.tmdb.org/t/p/w185";
+            Serie serie = new Serie();
+            JSONArray seasonJson = jObject.getJSONArray("seasons");
+            JSONObject lastObj = seasonJson.getJSONObject(seasonJson.length() - 1);
+
+            serie.setImage(path + lastObj.getString("poster_path"));
+            serie.setTitle(jObject.getString("name"));
+            serie.setTmdb_score(jObject.getDouble("vote_average"));
+            /*
+            serie.setMax_episode();
+            serie.setMax_season(lastObj.getInt("season_number"));*/
+
+            ArrayList<Season> seasons = new ArrayList<>();
+
+            for (int i = 0; i < seasonJson.length(); ++i) {
+                JSONObject jsonObject = seasonJson.getJSONObject(i);
+                Season season = new Season();
+                season.setEpisode_count(jsonObject.getInt("episode_count"));
+                season.setPoster_path(path + jsonObject.getString("poster_path"));
+                season.setSeason_number(jsonObject.getInt("season_number"));
+                seasons.add(season);
+            }
+
+            serie.setSeasons(seasons);
+            System.out.println("");
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
     }
 }
