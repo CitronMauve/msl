@@ -47,18 +47,6 @@ public class MainActivity extends AppCompatActivity {
         spec.setIndicator("En cours");
         host.addTab(spec);
 
-        //Tab 3
-        spec = host.newTabSpec("Complétées");
-        spec.setContent(R.id.tab3);
-        spec.setIndicator("Complétées");
-        host.addTab(spec);
-
-        //Tab4
-        spec = host.newTabSpec("À regarder");
-        spec.setContent(R.id.tab4);
-        spec.setIndicator("À regarder");
-        host.addTab(spec);
-
         String popular = "https://api.themoviedb.org/3/tv/popular?page=1&language=en-US&api_key=35d25d93d8eb4b186de3b9759338f7a9";
 
         AsyncTask task = new RetrieveRestResponse().execute(popular);

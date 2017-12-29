@@ -233,227 +233,227 @@
                     </ScrollView>
                 </LinearLayout>
 
-                <LinearLayout
-                    android:id="@+id/tab3"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:orientation="vertical">
+                <!--<LinearLayout-->
+                    <!--android:id="@+id/tab3"-->
+                    <!--android:layout_width="match_parent"-->
+                    <!--android:layout_height="match_parent"-->
+                    <!--android:orientation="vertical">-->
 
-                    <ScrollView
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent">
+                    <!--<ScrollView-->
+                        <!--android:layout_width="match_parent"-->
+                        <!--android:layout_height="match_parent">-->
 
-                    <TableLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent">
+                    <!--<TableLayout-->
+                        <!--android:layout_width="match_parent"-->
+                        <!--android:layout_height="match_parent">-->
 
-                        <!--<TableRow-->
-                            <!--android:layout_width="match_parent"-->
-                            <!--android:layout_height="match_parent"-->
-                            <!--android:background="@color/colorPrimary"-->
-                            <!--android:gravity="center">-->
+                        <!--&lt;!&ndash;<TableRow&ndash;&gt;-->
+                            <!--&lt;!&ndash;android:layout_width="match_parent"&ndash;&gt;-->
+                            <!--&lt;!&ndash;android:layout_height="match_parent"&ndash;&gt;-->
+                            <!--&lt;!&ndash;android:background="@color/colorPrimary"&ndash;&gt;-->
+                            <!--&lt;!&ndash;android:gravity="center">&ndash;&gt;-->
 
-                            <!--<TableRow-->
-                                <!--android:layout_width="match_parent"-->
-                                <!--android:layout_height="match_parent">-->
+                            <!--&lt;!&ndash;<TableRow&ndash;&gt;-->
+                                <!--&lt;!&ndash;android:layout_width="match_parent"&ndash;&gt;-->
+                                <!--&lt;!&ndash;android:layout_height="match_parent">&ndash;&gt;-->
 
-                                <!--<TextView-->
-                                    <!--android:id="@+id/textView15"-->
-                                    <!--android:layout_width="wrap_content"-->
-                                    <!--android:layout_height="wrap_content"-->
-                                    <!--android:drawablePadding="@android:dimen/app_icon_size"-->
-                                    <!--android:padding="5dip"-->
-                                    <!--android:text="@string/image"-->
-                                    <!--android:textAppearance="@android:style/TextAppearance.Material.Large"-->
-                                    <!--android:textColor="@android:color/white"-->
-                                    <!--android:textColorLink="@color/colorPrimaryDark"-->
-                                    <!--android:textSize="15sp" />-->
-                            <!--</TableRow>-->
+                                <!--&lt;!&ndash;<TextView&ndash;&gt;-->
+                                    <!--&lt;!&ndash;android:id="@+id/textView15"&ndash;&gt;-->
+                                    <!--&lt;!&ndash;android:layout_width="wrap_content"&ndash;&gt;-->
+                                    <!--&lt;!&ndash;android:layout_height="wrap_content"&ndash;&gt;-->
+                                    <!--&lt;!&ndash;android:drawablePadding="@android:dimen/app_icon_size"&ndash;&gt;-->
+                                    <!--&lt;!&ndash;android:padding="5dip"&ndash;&gt;-->
+                                    <!--&lt;!&ndash;android:text="@string/image"&ndash;&gt;-->
+                                    <!--&lt;!&ndash;android:textAppearance="@android:style/TextAppearance.Material.Large"&ndash;&gt;-->
+                                    <!--&lt;!&ndash;android:textColor="@android:color/white"&ndash;&gt;-->
+                                    <!--&lt;!&ndash;android:textColorLink="@color/colorPrimaryDark"&ndash;&gt;-->
+                                    <!--&lt;!&ndash;android:textSize="15sp" />&ndash;&gt;-->
+                            <!--&lt;!&ndash;</TableRow>&ndash;&gt;-->
 
-                            <!--<TableRow-->
-                                <!--android:layout_width="match_parent"-->
-                                <!--android:layout_height="match_parent">-->
+                            <!--&lt;!&ndash;<TableRow&ndash;&gt;-->
+                                <!--&lt;!&ndash;android:layout_width="match_parent"&ndash;&gt;-->
+                                <!--&lt;!&ndash;android:layout_height="match_parent">&ndash;&gt;-->
 
-                                <!--<TextView-->
-                                    <!--android:id="@+id/textView16"-->
-                                    <!--android:layout_width="wrap_content"-->
-                                    <!--android:layout_height="wrap_content"-->
-                                    <!--android:drawablePadding="@android:dimen/app_icon_size"-->
-                                    <!--android:padding="5dip"-->
-                                    <!--android:text="@string/titre"-->
-                                    <!--android:textAppearance="@android:style/TextAppearance.Material.Large"-->
-                                    <!--android:textColor="@android:color/white"-->
-                                    <!--android:textColorLink="@color/colorPrimaryDark"-->
-                                    <!--android:textSize="15sp" />-->
-                            <!--</TableRow>-->
+                                <!--&lt;!&ndash;<TextView&ndash;&gt;-->
+                                    <!--&lt;!&ndash;android:id="@+id/textView16"&ndash;&gt;-->
+                                    <!--&lt;!&ndash;android:layout_width="wrap_content"&ndash;&gt;-->
+                                    <!--&lt;!&ndash;android:layout_height="wrap_content"&ndash;&gt;-->
+                                    <!--&lt;!&ndash;android:drawablePadding="@android:dimen/app_icon_size"&ndash;&gt;-->
+                                    <!--&lt;!&ndash;android:padding="5dip"&ndash;&gt;-->
+                                    <!--&lt;!&ndash;android:text="@string/titre"&ndash;&gt;-->
+                                    <!--&lt;!&ndash;android:textAppearance="@android:style/TextAppearance.Material.Large"&ndash;&gt;-->
+                                    <!--&lt;!&ndash;android:textColor="@android:color/white"&ndash;&gt;-->
+                                    <!--&lt;!&ndash;android:textColorLink="@color/colorPrimaryDark"&ndash;&gt;-->
+                                    <!--&lt;!&ndash;android:textSize="15sp" />&ndash;&gt;-->
+                            <!--&lt;!&ndash;</TableRow>&ndash;&gt;-->
 
-                            <!--<TableRow-->
-                                <!--android:layout_width="match_parent"-->
-                                <!--android:layout_height="match_parent">-->
+                            <!--&lt;!&ndash;<TableRow&ndash;&gt;-->
+                                <!--&lt;!&ndash;android:layout_width="match_parent"&ndash;&gt;-->
+                                <!--&lt;!&ndash;android:layout_height="match_parent">&ndash;&gt;-->
 
-                                <!--<TextView-->
-                                    <!--android:id="@+id/textView17"-->
-                                    <!--android:layout_width="wrap_content"-->
-                                    <!--android:layout_height="wrap_content"-->
-                                    <!--android:drawablePadding="@android:dimen/app_icon_size"-->
-                                    <!--android:padding="5dip"-->
-                                    <!--android:text="@string/score_personnel"-->
-                                    <!--android:textAppearance="@android:style/TextAppearance.Material.Large"-->
-                                    <!--android:textColor="@android:color/white"-->
-                                    <!--android:textColorLink="@color/colorPrimaryDark"-->
-                                    <!--android:textSize="15sp" />-->
-                            <!--</TableRow>-->
+                                <!--&lt;!&ndash;<TextView&ndash;&gt;-->
+                                    <!--&lt;!&ndash;android:id="@+id/textView17"&ndash;&gt;-->
+                                    <!--&lt;!&ndash;android:layout_width="wrap_content"&ndash;&gt;-->
+                                    <!--&lt;!&ndash;android:layout_height="wrap_content"&ndash;&gt;-->
+                                    <!--&lt;!&ndash;android:drawablePadding="@android:dimen/app_icon_size"&ndash;&gt;-->
+                                    <!--&lt;!&ndash;android:padding="5dip"&ndash;&gt;-->
+                                    <!--&lt;!&ndash;android:text="@string/score_personnel"&ndash;&gt;-->
+                                    <!--&lt;!&ndash;android:textAppearance="@android:style/TextAppearance.Material.Large"&ndash;&gt;-->
+                                    <!--&lt;!&ndash;android:textColor="@android:color/white"&ndash;&gt;-->
+                                    <!--&lt;!&ndash;android:textColorLink="@color/colorPrimaryDark"&ndash;&gt;-->
+                                    <!--&lt;!&ndash;android:textSize="15sp" />&ndash;&gt;-->
+                            <!--&lt;!&ndash;</TableRow>&ndash;&gt;-->
 
-                            <!--<TableRow-->
-                                <!--android:layout_width="match_parent"-->
-                                <!--android:layout_height="match_parent">-->
+                            <!--&lt;!&ndash;<TableRow&ndash;&gt;-->
+                                <!--&lt;!&ndash;android:layout_width="match_parent"&ndash;&gt;-->
+                                <!--&lt;!&ndash;android:layout_height="match_parent">&ndash;&gt;-->
 
-                                <!--<TextView-->
-                                    <!--android:id="@+id/textView18"-->
-                                    <!--android:layout_width="wrap_content"-->
-                                    <!--android:layout_height="wrap_content"-->
-                                    <!--android:drawablePadding="@android:dimen/app_icon_size"-->
-                                    <!--android:padding="5dip"-->
-                                    <!--android:text="@string/score_tmdb"-->
-                                    <!--android:textAppearance="@android:style/TextAppearance.Material.Large"-->
-                                    <!--android:textColor="@android:color/white"-->
-                                    <!--android:textColorLink="@color/colorPrimaryDark"-->
-                                    <!--android:textSize="15sp" />-->
-                            <!--</TableRow>-->
+                                <!--&lt;!&ndash;<TextView&ndash;&gt;-->
+                                    <!--&lt;!&ndash;android:id="@+id/textView18"&ndash;&gt;-->
+                                    <!--&lt;!&ndash;android:layout_width="wrap_content"&ndash;&gt;-->
+                                    <!--&lt;!&ndash;android:layout_height="wrap_content"&ndash;&gt;-->
+                                    <!--&lt;!&ndash;android:drawablePadding="@android:dimen/app_icon_size"&ndash;&gt;-->
+                                    <!--&lt;!&ndash;android:padding="5dip"&ndash;&gt;-->
+                                    <!--&lt;!&ndash;android:text="@string/score_tmdb"&ndash;&gt;-->
+                                    <!--&lt;!&ndash;android:textAppearance="@android:style/TextAppearance.Material.Large"&ndash;&gt;-->
+                                    <!--&lt;!&ndash;android:textColor="@android:color/white"&ndash;&gt;-->
+                                    <!--&lt;!&ndash;android:textColorLink="@color/colorPrimaryDark"&ndash;&gt;-->
+                                    <!--&lt;!&ndash;android:textSize="15sp" />&ndash;&gt;-->
+                            <!--&lt;!&ndash;</TableRow>&ndash;&gt;-->
 
-                            <!--<TableRow-->
-                                <!--android:layout_width="match_parent"-->
-                                <!--android:layout_height="match_parent">-->
+                            <!--&lt;!&ndash;<TableRow&ndash;&gt;-->
+                                <!--&lt;!&ndash;android:layout_width="match_parent"&ndash;&gt;-->
+                                <!--&lt;!&ndash;android:layout_height="match_parent">&ndash;&gt;-->
 
-                                <!--<TextView-->
-                                    <!--android:id="@+id/textView19"-->
-                                    <!--android:layout_width="match_parent"-->
-                                    <!--android:layout_height="wrap_content"-->
-                                    <!--android:drawablePadding="@android:dimen/app_icon_size"-->
-                                    <!--android:padding="5dip"-->
-                                    <!--android:text="@string/progress"-->
-                                    <!--android:textAppearance="@android:style/TextAppearance.Material.Large"-->
-                                    <!--android:textColor="@android:color/white"-->
-                                    <!--android:textColorLink="@color/colorPrimaryDark"-->
-                                    <!--android:textSize="15sp" />-->
-                            <!--</TableRow>-->
+                                <!--&lt;!&ndash;<TextView&ndash;&gt;-->
+                                    <!--&lt;!&ndash;android:id="@+id/textView19"&ndash;&gt;-->
+                                    <!--&lt;!&ndash;android:layout_width="match_parent"&ndash;&gt;-->
+                                    <!--&lt;!&ndash;android:layout_height="wrap_content"&ndash;&gt;-->
+                                    <!--&lt;!&ndash;android:drawablePadding="@android:dimen/app_icon_size"&ndash;&gt;-->
+                                    <!--&lt;!&ndash;android:padding="5dip"&ndash;&gt;-->
+                                    <!--&lt;!&ndash;android:text="@string/progress"&ndash;&gt;-->
+                                    <!--&lt;!&ndash;android:textAppearance="@android:style/TextAppearance.Material.Large"&ndash;&gt;-->
+                                    <!--&lt;!&ndash;android:textColor="@android:color/white"&ndash;&gt;-->
+                                    <!--&lt;!&ndash;android:textColorLink="@color/colorPrimaryDark"&ndash;&gt;-->
+                                    <!--&lt;!&ndash;android:textSize="15sp" />&ndash;&gt;-->
+                            <!--&lt;!&ndash;</TableRow>&ndash;&gt;-->
 
-                        <!--</TableRow>-->
+                        <!--&lt;!&ndash;</TableRow>&ndash;&gt;-->
 
-                    </TableLayout>
-                    </ScrollView>
-                </LinearLayout>
+                    <!--</TableLayout>-->
+                    <!--</ScrollView>-->
+                <!--</LinearLayout>-->
 
-                <LinearLayout
-                    android:id="@+id/tab4"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:orientation="vertical">
+                <!--<LinearLayout-->
+                    <!--android:id="@+id/tab4"-->
+                    <!--android:layout_width="match_parent"-->
+                    <!--android:layout_height="match_parent"-->
+                    <!--android:orientation="vertical">-->
 
-                    <ScrollView
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent">
+                    <!--<ScrollView-->
+                        <!--android:layout_width="match_parent"-->
+                        <!--android:layout_height="match_parent">-->
 
-                    <TableLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent">
+                    <!--<TableLayout-->
+                        <!--android:layout_width="match_parent"-->
+                        <!--android:layout_height="match_parent">-->
 
-                        <!--<TableRow-->
-                            <!--android:layout_width="match_parent"-->
-                            <!--android:layout_height="match_parent"-->
-                            <!--android:background="@color/colorPrimary"-->
-                            <!--android:gravity="center">-->
+                        <!--&lt;!&ndash;<TableRow&ndash;&gt;-->
+                            <!--&lt;!&ndash;android:layout_width="match_parent"&ndash;&gt;-->
+                            <!--&lt;!&ndash;android:layout_height="match_parent"&ndash;&gt;-->
+                            <!--&lt;!&ndash;android:background="@color/colorPrimary"&ndash;&gt;-->
+                            <!--&lt;!&ndash;android:gravity="center">&ndash;&gt;-->
 
-                            <!--<TableRow-->
-                                <!--android:layout_width="match_parent"-->
-                                <!--android:layout_height="match_parent">-->
+                            <!--&lt;!&ndash;<TableRow&ndash;&gt;-->
+                                <!--&lt;!&ndash;android:layout_width="match_parent"&ndash;&gt;-->
+                                <!--&lt;!&ndash;android:layout_height="match_parent">&ndash;&gt;-->
 
-                                <!--<TextView-->
-                                    <!--android:id="@+id/textView20"-->
-                                    <!--android:layout_width="wrap_content"-->
-                                    <!--android:layout_height="wrap_content"-->
-                                    <!--android:drawablePadding="@android:dimen/app_icon_size"-->
-                                    <!--android:padding="5dip"-->
-                                    <!--android:text="@string/image"-->
-                                    <!--android:textAppearance="@android:style/TextAppearance.Material.Large"-->
-                                    <!--android:textColor="@android:color/white"-->
-                                    <!--android:textColorLink="@color/colorPrimaryDark"-->
-                                    <!--android:textSize="15sp" />-->
-                            <!--</TableRow>-->
+                                <!--&lt;!&ndash;<TextView&ndash;&gt;-->
+                                    <!--&lt;!&ndash;android:id="@+id/textView20"&ndash;&gt;-->
+                                    <!--&lt;!&ndash;android:layout_width="wrap_content"&ndash;&gt;-->
+                                    <!--&lt;!&ndash;android:layout_height="wrap_content"&ndash;&gt;-->
+                                    <!--&lt;!&ndash;android:drawablePadding="@android:dimen/app_icon_size"&ndash;&gt;-->
+                                    <!--&lt;!&ndash;android:padding="5dip"&ndash;&gt;-->
+                                    <!--&lt;!&ndash;android:text="@string/image"&ndash;&gt;-->
+                                    <!--&lt;!&ndash;android:textAppearance="@android:style/TextAppearance.Material.Large"&ndash;&gt;-->
+                                    <!--&lt;!&ndash;android:textColor="@android:color/white"&ndash;&gt;-->
+                                    <!--&lt;!&ndash;android:textColorLink="@color/colorPrimaryDark"&ndash;&gt;-->
+                                    <!--&lt;!&ndash;android:textSize="15sp" />&ndash;&gt;-->
+                            <!--&lt;!&ndash;</TableRow>&ndash;&gt;-->
 
-                            <!--<TableRow-->
-                                <!--android:layout_width="match_parent"-->
-                                <!--android:layout_height="match_parent">-->
+                            <!--&lt;!&ndash;<TableRow&ndash;&gt;-->
+                                <!--&lt;!&ndash;android:layout_width="match_parent"&ndash;&gt;-->
+                                <!--&lt;!&ndash;android:layout_height="match_parent">&ndash;&gt;-->
 
-                                <!--<TextView-->
-                                    <!--android:id="@+id/textView21"-->
-                                    <!--android:layout_width="wrap_content"-->
-                                    <!--android:layout_height="wrap_content"-->
-                                    <!--android:drawablePadding="@android:dimen/app_icon_size"-->
-                                    <!--android:padding="5dip"-->
-                                    <!--android:text="@string/titre"-->
-                                    <!--android:textAppearance="@android:style/TextAppearance.Material.Large"-->
-                                    <!--android:textColor="@android:color/white"-->
-                                    <!--android:textColorLink="@color/colorPrimaryDark"-->
-                                    <!--android:textSize="15sp" />-->
-                            <!--</TableRow>-->
+                                <!--&lt;!&ndash;<TextView&ndash;&gt;-->
+                                    <!--&lt;!&ndash;android:id="@+id/textView21"&ndash;&gt;-->
+                                    <!--&lt;!&ndash;android:layout_width="wrap_content"&ndash;&gt;-->
+                                    <!--&lt;!&ndash;android:layout_height="wrap_content"&ndash;&gt;-->
+                                    <!--&lt;!&ndash;android:drawablePadding="@android:dimen/app_icon_size"&ndash;&gt;-->
+                                    <!--&lt;!&ndash;android:padding="5dip"&ndash;&gt;-->
+                                    <!--&lt;!&ndash;android:text="@string/titre"&ndash;&gt;-->
+                                    <!--&lt;!&ndash;android:textAppearance="@android:style/TextAppearance.Material.Large"&ndash;&gt;-->
+                                    <!--&lt;!&ndash;android:textColor="@android:color/white"&ndash;&gt;-->
+                                    <!--&lt;!&ndash;android:textColorLink="@color/colorPrimaryDark"&ndash;&gt;-->
+                                    <!--&lt;!&ndash;android:textSize="15sp" />&ndash;&gt;-->
+                            <!--&lt;!&ndash;</TableRow>&ndash;&gt;-->
 
-                            <!--<TableRow-->
-                                <!--android:layout_width="match_parent"-->
-                                <!--android:layout_height="match_parent">-->
+                            <!--&lt;!&ndash;<TableRow&ndash;&gt;-->
+                                <!--&lt;!&ndash;android:layout_width="match_parent"&ndash;&gt;-->
+                                <!--&lt;!&ndash;android:layout_height="match_parent">&ndash;&gt;-->
 
-                                <!--<TextView-->
-                                    <!--android:id="@+id/textView22"-->
-                                    <!--android:layout_width="wrap_content"-->
-                                    <!--android:layout_height="wrap_content"-->
-                                    <!--android:drawablePadding="@android:dimen/app_icon_size"-->
-                                    <!--android:padding="5dip"-->
-                                    <!--android:text="@string/score_personnel"-->
-                                    <!--android:textAppearance="@android:style/TextAppearance.Material.Large"-->
-                                    <!--android:textColor="@android:color/white"-->
-                                    <!--android:textColorLink="@color/colorPrimaryDark"-->
-                                    <!--android:textSize="15sp" />-->
-                            <!--</TableRow>-->
+                                <!--&lt;!&ndash;<TextView&ndash;&gt;-->
+                                    <!--&lt;!&ndash;android:id="@+id/textView22"&ndash;&gt;-->
+                                    <!--&lt;!&ndash;android:layout_width="wrap_content"&ndash;&gt;-->
+                                    <!--&lt;!&ndash;android:layout_height="wrap_content"&ndash;&gt;-->
+                                    <!--&lt;!&ndash;android:drawablePadding="@android:dimen/app_icon_size"&ndash;&gt;-->
+                                    <!--&lt;!&ndash;android:padding="5dip"&ndash;&gt;-->
+                                    <!--&lt;!&ndash;android:text="@string/score_personnel"&ndash;&gt;-->
+                                    <!--&lt;!&ndash;android:textAppearance="@android:style/TextAppearance.Material.Large"&ndash;&gt;-->
+                                    <!--&lt;!&ndash;android:textColor="@android:color/white"&ndash;&gt;-->
+                                    <!--&lt;!&ndash;android:textColorLink="@color/colorPrimaryDark"&ndash;&gt;-->
+                                    <!--&lt;!&ndash;android:textSize="15sp" />&ndash;&gt;-->
+                            <!--&lt;!&ndash;</TableRow>&ndash;&gt;-->
 
-                            <!--<TableRow-->
-                                <!--android:layout_width="match_parent"-->
-                                <!--android:layout_height="match_parent">-->
+                            <!--&lt;!&ndash;<TableRow&ndash;&gt;-->
+                                <!--&lt;!&ndash;android:layout_width="match_parent"&ndash;&gt;-->
+                                <!--&lt;!&ndash;android:layout_height="match_parent">&ndash;&gt;-->
 
-                                <!--<TextView-->
-                                    <!--android:id="@+id/textView23"-->
-                                    <!--android:layout_width="wrap_content"-->
-                                    <!--android:layout_height="wrap_content"-->
-                                    <!--android:drawablePadding="@android:dimen/app_icon_size"-->
-                                    <!--android:padding="5dip"-->
-                                    <!--android:text="@string/score_tmdb"-->
-                                    <!--android:textAppearance="@android:style/TextAppearance.Material.Large"-->
-                                    <!--android:textColor="@android:color/white"-->
-                                    <!--android:textColorLink="@color/colorPrimaryDark"-->
-                                    <!--android:textSize="15sp" />-->
-                            <!--</TableRow>-->
+                                <!--&lt;!&ndash;<TextView&ndash;&gt;-->
+                                    <!--&lt;!&ndash;android:id="@+id/textView23"&ndash;&gt;-->
+                                    <!--&lt;!&ndash;android:layout_width="wrap_content"&ndash;&gt;-->
+                                    <!--&lt;!&ndash;android:layout_height="wrap_content"&ndash;&gt;-->
+                                    <!--&lt;!&ndash;android:drawablePadding="@android:dimen/app_icon_size"&ndash;&gt;-->
+                                    <!--&lt;!&ndash;android:padding="5dip"&ndash;&gt;-->
+                                    <!--&lt;!&ndash;android:text="@string/score_tmdb"&ndash;&gt;-->
+                                    <!--&lt;!&ndash;android:textAppearance="@android:style/TextAppearance.Material.Large"&ndash;&gt;-->
+                                    <!--&lt;!&ndash;android:textColor="@android:color/white"&ndash;&gt;-->
+                                    <!--&lt;!&ndash;android:textColorLink="@color/colorPrimaryDark"&ndash;&gt;-->
+                                    <!--&lt;!&ndash;android:textSize="15sp" />&ndash;&gt;-->
+                            <!--&lt;!&ndash;</TableRow>&ndash;&gt;-->
 
-                            <!--<TableRow-->
-                                <!--android:layout_width="match_parent"-->
-                                <!--android:layout_height="match_parent">-->
+                            <!--&lt;!&ndash;<TableRow&ndash;&gt;-->
+                                <!--&lt;!&ndash;android:layout_width="match_parent"&ndash;&gt;-->
+                                <!--&lt;!&ndash;android:layout_height="match_parent">&ndash;&gt;-->
 
-                                <!--<TextView-->
-                                    <!--android:id="@+id/textView24"-->
-                                    <!--android:layout_width="match_parent"-->
-                                    <!--android:layout_height="wrap_content"-->
-                                    <!--android:drawablePadding="@android:dimen/app_icon_size"-->
-                                    <!--android:padding="5dip"-->
-                                    <!--android:text="@string/progress"-->
-                                    <!--android:textAppearance="@android:style/TextAppearance.Material.Large"-->
-                                    <!--android:textColor="@android:color/white"-->
-                                    <!--android:textColorLink="@color/colorPrimaryDark"-->
-                                    <!--android:textSize="15sp" />-->
-                            <!--</TableRow>-->
+                                <!--&lt;!&ndash;<TextView&ndash;&gt;-->
+                                    <!--&lt;!&ndash;android:id="@+id/textView24"&ndash;&gt;-->
+                                    <!--&lt;!&ndash;android:layout_width="match_parent"&ndash;&gt;-->
+                                    <!--&lt;!&ndash;android:layout_height="wrap_content"&ndash;&gt;-->
+                                    <!--&lt;!&ndash;android:drawablePadding="@android:dimen/app_icon_size"&ndash;&gt;-->
+                                    <!--&lt;!&ndash;android:padding="5dip"&ndash;&gt;-->
+                                    <!--&lt;!&ndash;android:text="@string/progress"&ndash;&gt;-->
+                                    <!--&lt;!&ndash;android:textAppearance="@android:style/TextAppearance.Material.Large"&ndash;&gt;-->
+                                    <!--&lt;!&ndash;android:textColor="@android:color/white"&ndash;&gt;-->
+                                    <!--&lt;!&ndash;android:textColorLink="@color/colorPrimaryDark"&ndash;&gt;-->
+                                    <!--&lt;!&ndash;android:textSize="15sp" />&ndash;&gt;-->
+                            <!--&lt;!&ndash;</TableRow>&ndash;&gt;-->
 
-                        <!--</TableRow>-->
+                        <!--&lt;!&ndash;</TableRow>&ndash;&gt;-->
 
-                    </TableLayout>
-                    </ScrollView>
-                </LinearLayout>
+                    <!--</TableLayout>-->
+                    <!--</ScrollView>-->
+                <!--</LinearLayout>-->
             </FrameLayout>
         </LinearLayout>
     </TabHost>
