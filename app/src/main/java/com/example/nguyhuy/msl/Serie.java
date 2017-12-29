@@ -29,7 +29,7 @@ public class Serie {
     }
 
     public void setImage(String image) {
-        this.image = image;
+        this.image = "https://image.tmdb.org/t/p/original" + image;
     }
 
     public String getTitle() {

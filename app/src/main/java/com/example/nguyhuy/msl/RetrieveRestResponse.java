@@ -1,7 +1,6 @@
 package com.example.nguyhuy.msl;
 
 import android.os.AsyncTask;
-import android.util.Log;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -12,7 +11,6 @@ import java.util.ArrayList;
 import okhttp3.MediaType;
 import okhttp3.OkHttpClient;
 import okhttp3.Request;
-import okhttp3.RequestBody;
 import okhttp3.Response;
 
 public class RetrieveRestResponse extends AsyncTask<String, Void, String> {
@@ -62,7 +60,6 @@ public class RetrieveRestResponse extends AsyncTask<String, Void, String> {
             }
 
             serie.setSeasons(seasons);
-            System.out.println("");
         } catch (JSONException e) {
             e.printStackTrace();
         }

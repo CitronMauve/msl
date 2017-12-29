@@ -1,3 +1,8 @@
 <resources>
     <string name="app_name">My Serie List</string>
+    <string name="image">Image</string>
+    <string name="titre">Titre</string>
+    <string name="score_personnel">Score Personnel</string>
+    <string name="score_tmdb">Score TMDB</string>
+    <string name="progress">Progress</string>
 </resources>

@@ -1,46 +1,230 @@
 package com.example.nguyhuy.msl;
 
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
+import android.graphics.drawable.Drawable;
+import android.net.Uri;
 import android.os.AsyncTask;
-import android.os.NetworkOnMainThreadException;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageView;
+import android.widget.TabHost;
+import android.widget.TableLayout;
+import android.widget.TableRow;
+import android.widget.TextView;
+import com.example.nguyhuy.msl.RetrieveRestResponse;
+
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
+import org.w3c.dom.Text;
 
 import java.io.IOException;
+import java.io.InputStream;
+import java.net.URL;
+import java.util.Arrays;
+import java.util.concurrent.ExecutionException;
 
-import okhttp3.MediaType;
-import okhttp3.OkHttpClient;
-import okhttp3.Request;
-import okhttp3.RequestBody;
-import okhttp3.Response;
+import javax.xml.transform.Result;
 
 public class MainActivity extends AppCompatActivity {
+    TabHost tabHost;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        final Button button = (Button) findViewById(R.id.button);
-        button.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                // Fetch details on Game of Thrones
-                String gameOfThrones = "https://api.themoviedb.org/3/tv/1399?api_key=35d25d93d8eb4b186de3b9759338f7a9";
-                new RetrieveRestResponse().execute(gameOfThrones);
+        TabHost host = (TabHost)findViewById(R.id.tabHost);
+        host.setup();
 
-                // Get a list of the current popular TV shows on TMDb. This list updates daily.
-                String popular = "https://api.themoviedb.org/3/tv/popular?page=1&language=en-US&api_key=35d25d93d8eb4b186de3b9759338f7a9";
-                //new RetrieveRestResponse().execute(popular);
+        //Tab 1
+        TabHost.TabSpec spec = host.newTabSpec("Toutes les séries");
+        spec.setContent(R.id.tab1);
+        spec.setIndicator("Toutes les séries");
+        host.addTab(spec);
 
-                // Get a list of the top rated TV shows on TMDb.
-                String topRated = "https://api.themoviedb.org/3/tv/top_rated?page=1&language=en-US&api_key=35d25d93d8eb4b186de3b9759338f7a9";
-                //new RetrieveRestResponse().execute(topRated);
+        //Tab 2
+        spec = host.newTabSpec("En cours");
+        spec.setContent(R.id.tab2);
+        spec.setIndicator("En cours");
+        host.addTab(spec);
 
-                // Search for a TV show.
-                // https://developers.themoviedb.org/3/search/search-tv-shows
-                String search = "https://api.themoviedb.org/3/search/tv?page=1&language=en-US&api_key=35d25d93d8eb4b186de3b9759338f7a9";
+        //Tab 3
+        spec = host.newTabSpec("Complétées");
+        spec.setContent(R.id.tab3);
+        spec.setIndicator("Complétées");
+        host.addTab(spec);
+
+        //Tab4
+        spec = host.newTabSpec("À regarder");
+        spec.setContent(R.id.tab4);
+        spec.setIndicator("À regarder");
+        host.addTab(spec);
+
+        String popular = "https://api.themoviedb.org/3/tv/popular?page=1&language=en-US&api_key=35d25d93d8eb4b186de3b9759338f7a9";
+
+        AsyncTask task = new RetrieveRestResponse().execute(popular);
+
+        String result = "";
+        try {
+            result = task.get().toString();
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        } catch (ExecutionException e) {
+            e.printStackTrace();
+        }
+
+        JSONObject jsonObject = null;
+        try {
+            jsonObject = new JSONObject(result);
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
+
+        JSONArray jsonArray = new JSONArray();
+        try {
+            assert jsonObject != null;
+            jsonArray =  jsonObject.getJSONArray("results");
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
+
+        Serie[] series = new Serie[jsonArray.length()];
+
+        for (int i = 0; i < jsonArray.length(); i++) {
+            JSONObject array = null;
+            try {
+                array = jsonArray.getJSONObject(i);
+            } catch (JSONException e) {
+                e.printStackTrace();
             }
-        });
+
+            Serie serie = new Serie();
+            try {
+                assert array != null;
+                serie.setImage((String) array.get("poster_path"));
+            } catch (JSONException e) {
+                e.printStackTrace();
+            }
+            try {
+                serie.setTitle((String) array.get("name"));
+            } catch (JSONException e) {
+                e.printStackTrace();
+            }
+            serie.setUser_score(0);
+            try {
+                serie.setTmdb_score(array.getDouble("vote_average"));
+            } catch (JSONException e) {
+                e.printStackTrace();
+            }
+            series[i] = serie;
+        }
+
+        TableLayout tableLayout = (TableLayout) findViewById(R.id.toutes_series);
+        for (int j = 0; j < series.length; j++) {
+
+
+            TableRow tableRow = new TableRow(this);
+            TableRow.LayoutParams lp = new TableRow.LayoutParams(TableRow.LayoutParams.WRAP_CONTENT);
+            tableRow.setLayoutParams(lp);
+            ImageView imageView = new ImageView(this);
+
+            AsyncTask image = new RetrieveImage().execute(series[j].getImage());
+
+            Bitmap b = null;
+            try {
+                b = (Bitmap) image.get();
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            } catch (ExecutionException e) {
+                e.printStackTrace();
+            }
+            assert b != null;
+            b = Bitmap.createScaledBitmap(b, 200, 200, false);
+
+            imageView.setImageBitmap(b);
+
+            TextView title = new TextView(this);
+            title.setText(series[j].getTitle());
+
+            TextView score_perso = new TextView(this);
+            score_perso.setText(series[j].getUser_score() + "/10");
+
+            TextView score_tmdb = new TextView(this);
+            score_tmdb.setText(series[j].getTmdb_score() + "/10");
+
+            tableRow.addView(imageView);
+            tableRow.addView(title);
+            tableRow.addView(score_perso);
+            tableRow.addView(score_tmdb);
+            tableLayout.addView(tableRow);
+        }
     }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        // Inflate the menu; this adds items to the action bar if it is present.
+//        getMenuInflater().inflate(R.menu.menu_main, menu);
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        // Handle action bar item clicks here. The action bar will
+        // automatically handle clicks on the Home/Up button, so long
+        // as you specify a parent activity in AndroidManifest.xml.
+        int id = item.getItemId();
+
+        //noinspection SimplifiableIfStatement
+//        if (id == R.id.action_settings) {
+//            return true;
+//        }
+
+        return super.onOptionsItemSelected(item);
+    }
+
+
+    //    @Override
+//    protected void onCreate(Bundle savedInstanceState) {
+//        super.onCreate(savedInstanceState);
+//        setContentView(R.layout.activity_main);
+
+//        final Button button = (Button) findViewById(R.id.button);
+//        button.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                // Fetch details on Game of Thrones
+//                String gameOfThrones = "https://api.themoviedb.org/3/tv/1399?api_key=35d25d93d8eb4b186de3b9759338f7a9";
+//                AsyncTask task = new RetrieveRestResponse().execute(gameOfThrones);
+//
+//                String plop = "";
+//                try {
+//                    plop = task.get().toString();
+//                } catch (InterruptedException e) {
+//                    e.printStackTrace();
+//                } catch (ExecutionException e) {
+//                    e.printStackTrace();
+//                }
+//
+//                System.out.println(plop);
+//
+//                // Get a list of the current popular TV shows on TMDb. This list updates daily.
+//                String popular = "https://api.themoviedb.org/3/tv/popular?page=1&language=en-US&api_key=35d25d93d8eb4b186de3b9759338f7a9";
+//                //new RetrieveRestResponse().execute(popular);
+//
+//                // Get a list of the top rated TV shows on TMDb.
+//                String topRated = "https://api.themoviedb.org/3/tv/top_rated?page=1&language=en-US&api_key=35d25d93d8eb4b186de3b9759338f7a9";
+//                //new RetrieveRestResponse().execute(topRated);
+//
+//                // Search for a TV show.
+//                // https://developers.themoviedb.org/3/search/search-tv-shows
+//                String search = "https://api.themoviedb.org/3/search/tv?page=1&language=en-US&api_key=35d25d93d8eb4b186de3b9759338f7a9";
+//                final TextView textView = (TextView) findViewById(R.id.textView);
+//            }
+//        });
+//    }
 }

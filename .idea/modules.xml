@@ -4,7 +4,9 @@
     <modules>
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
       <module fileurl="file://E:\Users\Vincent\Project\msl\app\app.iml" filepath="E:\Users\Vincent\Project\msl\app\app.iml" />
+      <module fileurl="file://D:\Stagiaire\Documents\cours\E4\msl\app\app.iml" filepath="D:\Stagiaire\Documents\cours\E4\msl\app\app.iml" />
       <module fileurl="file://$PROJECT_DIR$/msl.iml" filepath="$PROJECT_DIR$/msl.iml" />
+      <module fileurl="file://D:\Stagiaire\Documents\cours\E4\msl\msl.iml" filepath="D:\Stagiaire\Documents\cours\E4\msl\msl.iml" />
     </modules>
   </component>
 </project>
