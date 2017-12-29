@@ -17,6 +17,8 @@ public class Serie {
     private int actual_season;
     private int max_season;
 
+    private String description;
+
     private ArrayList<Season> seasons;
 
     public Serie () {
@@ -94,5 +96,13 @@ public class Serie {
 
     public void setSeasons(ArrayList<Season> seasons) {
         this.seasons = seasons;
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
     }
 }

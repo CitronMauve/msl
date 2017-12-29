@@ -1,38 +1,32 @@
 package com.example.nguyhuy.msl;
 
+import android.content.Context;
+import android.content.DialogInterface;
 import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
-import android.graphics.drawable.Drawable;
-import android.net.Uri;
 import android.os.AsyncTask;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.Gravity;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.MotionEvent;
 import android.view.View;
-import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TabHost;
 import android.widget.TableLayout;
 import android.widget.TableRow;
 import android.widget.TextView;
-import com.example.nguyhuy.msl.RetrieveRestResponse;
 
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-import org.w3c.dom.Text;
 
-import java.io.IOException;
-import java.io.InputStream;
-import java.net.URL;
-import java.util.Arrays;
 import java.util.concurrent.ExecutionException;
-
-import javax.xml.transform.Result;
 
 public class MainActivity extends AppCompatActivity {
     TabHost tabHost;
+    Serie[] series;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -93,7 +87,7 @@ public class MainActivity extends AppCompatActivity {
             e.printStackTrace();
         }
 
-        Serie[] series = new Serie[jsonArray.length()];
+        final Serie[] series = new Serie[jsonArray.length()];
 
         for (int i = 0; i < jsonArray.length(); i++) {
             JSONObject array = null;
@@ -118,6 +112,12 @@ public class MainActivity extends AppCompatActivity {
             serie.setUser_score(0);
             try {
                 serie.setTmdb_score(array.getDouble("vote_average"));
+            } catch (JSONException e) {
+                e.printStackTrace();
+            }
+
+            try {
+                serie.setDescription(array.getString("overview"));
             } catch (JSONException e) {
                 e.printStackTrace();
             }
@@ -150,19 +150,50 @@ public class MainActivity extends AppCompatActivity {
 
             TextView title = new TextView(this);
             title.setText(series[j].getTitle());
-
-            TextView score_perso = new TextView(this);
-            score_perso.setText(series[j].getUser_score() + "/10");
+            title.setGravity(Gravity.CENTER_VERTICAL | Gravity.CENTER_HORIZONTAL);
 
             TextView score_tmdb = new TextView(this);
-            score_tmdb.setText(series[j].getTmdb_score() + "/10");
+            score_tmdb.setText("Note : " + series[j].getTmdb_score() + "/10");
+            score_tmdb.setGravity(Gravity.END);
 
             tableRow.addView(imageView);
             tableRow.addView(title);
-            tableRow.addView(score_perso);
             tableRow.addView(score_tmdb);
+            if (j % 2 == 0) {
+                tableRow.setBackgroundColor(getResources().getColor(R.color.grey));
+            }
             tableLayout.addView(tableRow);
         }
+    }
+
+    public boolean onTouchEvent(MotionEvent event) {
+        TableLayout tableLayout = (TableLayout) findViewById(R.id.toutes_series);
+        for (int k = 0; k < tableLayout.getChildCount(); k++) {
+            TableRow row = (TableRow) tableLayout.getChildAt(k);
+            final int finalK = k;
+
+            final AlertDialog.Builder alertBuilder = new AlertDialog.Builder(this);
+
+            row.setOnClickListener(new View.OnClickListener() {
+                public void onClick(View view) {
+                    alertBuilder.setMessage(series[finalK].getDescription())
+                            .setPositiveButton("Ajouter à mes séries", new DialogInterface.OnClickListener() {
+                                public void onClick(DialogInterface dialog, int id) {
+                                    System.out.println("ajouté");
+                                }
+                            })
+                            .setNegativeButton("Fermer", new DialogInterface.OnClickListener() {
+                                public void onClick(DialogInterface dialog, int id) {
+                                    System.out.println("fermé");
+                                }
+                            });
+                    alertBuilder.create();
+                }
+
+            });
+            alertBuilder.show();
+        }
+        return false;
     }
 
     @Override
