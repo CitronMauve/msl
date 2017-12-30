@@ -52,6 +52,7 @@ public class MainActivity extends AppCompatActivity {
         AsyncTask task = new RetrieveRestResponse().execute(popular);
 
         String result = "";
+
         try {
             result = task.get().toString();
         } catch (InterruptedException e) {
@@ -61,6 +62,7 @@ public class MainActivity extends AppCompatActivity {
         }
 
         JSONObject jsonObject = null;
+
         try {
             jsonObject = new JSONObject(result);
         } catch (JSONException e) {
@@ -68,6 +70,7 @@ public class MainActivity extends AppCompatActivity {
         }
 
         JSONArray jsonArray = new JSONArray();
+
         try {
             assert jsonObject != null;
             jsonArray =  jsonObject.getJSONArray("results");
@@ -79,6 +82,7 @@ public class MainActivity extends AppCompatActivity {
 
         for (int i = 0; i < jsonArray.length(); i++) {
             JSONObject array = null;
+
             try {
                 array = jsonArray.getJSONObject(i);
             } catch (JSONException e) {
@@ -86,18 +90,28 @@ public class MainActivity extends AppCompatActivity {
             }
 
             Serie serie = new Serie();
+
             try {
                 assert array != null;
                 serie.setImage((String) array.get("poster_path"));
             } catch (JSONException e) {
                 e.printStackTrace();
             }
+
             try {
                 serie.setTitle((String) array.get("name"));
             } catch (JSONException e) {
                 e.printStackTrace();
             }
+
+            try {
+                serie.setTvId((String) array.get("id"));
+            } catch (JSONException e) {
+                e.printStackTrace();
+            }
+
             serie.setUser_score(0);
+
             try {
                 serie.setTmdb_score(array.getDouble("vote_average"));
             } catch (JSONException e) {
@@ -109,12 +123,44 @@ public class MainActivity extends AppCompatActivity {
             } catch (JSONException e) {
                 e.printStackTrace();
             }
+
+            String episodeCount = "https://api.themoviedb.org/3/tv/" + serie.getTvId() + "?page=1&language=en-US&api_key=35d25d93d8eb4b186de3b9759338f7a9";
+
+
+            AsyncTask getEpisodeCount = new RetrieveRestResponse().execute(episodeCount);
+
+            String resultDetails = "";
+
+            try {
+                resultDetails = getEpisodeCount.get().toString();
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            } catch (ExecutionException e) {
+                e.printStackTrace();
+            }
+
+            JSONObject detailledResults = null;
+
+            try {
+                detailledResults = new JSONObject(resultDetails);
+            } catch (JSONException e) {
+                e.printStackTrace();
+            }
+
+            try {
+                assert detailledResults != null;
+                serie.setMax_episode((Integer) detailledResults.get("number_of_episodes"));
+            } catch (JSONException e) {
+                e.printStackTrace();
+            }
+
             series[i] = serie;
         }
 
-        TableLayout tableLayout = (TableLayout) findViewById(R.id.toutes_series);
-        for (int j = 0; j < series.length; j++) {
+        TableLayout tableToutesSeries = (TableLayout) findViewById(R.id.toutes_series);
 
+        // toutes series
+        for (int j = 0; j < series.length; j++) {
 
             TableRow tableRow = new TableRow(this);
             TableRow.LayoutParams lp = new TableRow.LayoutParams(TableRow.LayoutParams.WRAP_CONTENT);
@@ -124,6 +170,7 @@ public class MainActivity extends AppCompatActivity {
             AsyncTask image = new RetrieveImage().execute(series[j].getImage());
 
             Bitmap b = null;
+
             try {
                 b = (Bitmap) image.get();
             } catch (InterruptedException e) {
@@ -132,6 +179,7 @@ public class MainActivity extends AppCompatActivity {
                 e.printStackTrace();
             }
             assert b != null;
+
             b = Bitmap.createScaledBitmap(b, 200, 200, false);
 
             imageView.setImageBitmap(b);
@@ -147,10 +195,70 @@ public class MainActivity extends AppCompatActivity {
             tableRow.addView(imageView);
             tableRow.addView(title);
             tableRow.addView(score_tmdb);
+
             if (j % 2 == 0) {
                 tableRow.setBackgroundColor(getResources().getColor(R.color.grey));
             }
-            tableLayout.addView(tableRow);
+
+            tableToutesSeries.addView(tableRow);
+        }
+
+        // mes series
+
+        JSONArray jsonBackup = new JSONArray();
+        Serie[] mySeries = new Serie[jsonBackup.length()];
+        // TODO get backup and set in mySeries
+
+
+        TableLayout tableMySeries = (TableLayout) findViewById(R.id.mes_series);
+
+
+        for (int j = 0; j < mySeries.length; j++) {
+
+            TableRow tableRow = new TableRow(this);
+            TableRow.LayoutParams lp = new TableRow.LayoutParams(TableRow.LayoutParams.WRAP_CONTENT);
+            tableRow.setLayoutParams(lp);
+            ImageView imageView = new ImageView(this);
+
+            AsyncTask image = new RetrieveImage().execute(mySeries[j].getImage());
+
+            Bitmap b = null;
+
+            try {
+                b = (Bitmap) image.get();
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            } catch (ExecutionException e) {
+                e.printStackTrace();
+            }
+            assert b != null;
+
+            b = Bitmap.createScaledBitmap(b, 200, 200, false);
+
+            imageView.setImageBitmap(b);
+
+            TextView title = new TextView(this);
+            title.setText(mySeries[j].getTitle());
+            title.setGravity(Gravity.CENTER_VERTICAL | Gravity.CENTER_HORIZONTAL);
+
+            TextView score_tmdb = new TextView(this);
+            score_tmdb.setText("Note : " + mySeries[j].getTmdb_score() + "/10");
+            score_tmdb.setGravity(Gravity.CENTER);
+
+            TextView progress = new TextView(this);
+            progress.setText("Progression : " + mySeries[j].getActual_episode() + "/" + mySeries[j].getMax_episode());
+            progress.setGravity(Gravity.END);
+
+            tableRow.addView(imageView);
+            tableRow.addView(title);
+            tableRow.addView(score_tmdb);
+            tableRow.addView(progress);
+
+            if (j % 2 == 0) {
+                tableRow.setBackgroundColor(getResources().getColor(R.color.grey));
+            }
+
+            tableMySeries.addView(tableRow);
         }
     }
 
@@ -181,6 +289,18 @@ public class MainActivity extends AppCompatActivity {
             });
             alertBuilder.show();
         }
+
+        TableLayout mySeries = (TableLayout) findViewById(R.id.mes_series);
+        for (int l = 0; l < mySeries.getChildCount(); l++) {
+            TableRow row = (TableRow) mySeries.getChildAt(l);
+
+            row.setOnClickListener(new View.OnClickListener() {
+                public void onClick(View view) {
+                    //todo recuperer l'objet Serie correspondant
+                }
+            });
+        }
+
         return false;
     }
 

@@ -19,6 +19,8 @@ public class Serie {
 
     private String description;
 
+    private String tvId;
+
     private ArrayList<Season> seasons;
 
     public Serie () {
@@ -104,5 +106,13 @@ public class Serie {
 
     public void setDescription(String description) {
         this.description = description;
+    }
+
+    public String getTvId() {
+        return tvId;
+    }
+
+    public void setTvId(String tvId) {
+        this.tvId = tvId;
     }
 }
